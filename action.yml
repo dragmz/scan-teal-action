@@ -9,12 +9,15 @@ runs:
   steps:
     - name: Download tealsarif
       run: curl -LJO https://github.com/dragmz/teal/releases/download/dev/tealsarif_linux_x64
+      shell: bash
         
     - name: Chmod tealsarif
       run: chmod +x tealsarif_linux_x64
+      shell: bash
         
     - name: Run tealsarif scan
       run: ./tealsarif_linux_x64 -path . > results.sarif.json
+      shell: bash
         
     - name: Upload SARIF file
       uses: github/codeql-action/upload-sarif@v2
